@@ -29,15 +29,15 @@
 --test_service.py：测试调用起的服务<br>
 --test_tokenizer.py：测试tokenizer<br>
 同时，我们要注意数据的一些文件：在/data/ccks2019/下<br>
-alias_and_subjects.txt：知识库中的实体名
-develop.json：用于预测
-entity_to_ids.json：实体以及对应知识库中的id
-entity_type.txt：实体的类型
-kb_data：知识库
-subject_id_with_info.json：知识库中实体id及其对应的相关信息
-test.pkl：测试二进制文件
-train.json：训练数据
-train.pkl：训练二进制文件
+alias_and_subjects.txt：知识库中的实体名<br>
+develop.json：用于预测<br>
+entity_to_ids.json：实体以及对应知识库中的id<br>
+entity_type.txt：实体的类型<br>
+kb_data：知识库<br>
+subject_id_with_info.json：知识库中实体id及其对应的相关信息<br>
+test.pkl：测试二进制文件<br>
+train.json：训练数据<br>
+train.pkl：训练二进制文件<br>
 
 # 流程
 首先是el_process.py里面生成一些我们所需要的中间文件。然后是el_processor.py测试数据处理器。接着在el_preprocess.py里面处理数据为bert所需要的格式，并划分训练集和测试集，存储为相关二进制文件。在el_dataset.py里面转换为pytorc所需要的格式，最后在el_main.py里面调用。
@@ -75,7 +75,8 @@ python el_main.py \
 2021-09-06 15:06:52,859 - INFO - el_main.py - train - 103 - 【train】 epoch：0 step:15041/15267 loss：0.328172
 ========进行测试========
 2021-09-06 16:04:21,522 - INFO - el_main.py - <module> - 252 - 【test】 loss：1076.141372 accuracy：0.9367 precision：0.9133 recall：0.9144 micro_f1：0.9367
-2021-09-06 16:04:21,974 - INFO - el_main.py - <module> - 254 -               precision    recall  f1-score   support
+2021-09-06 16:04:21,974 - INFO - el_main.py - <module> - 254 -               
+              precision    recall  f1-score   support
 
            0       0.95      0.95      0.95    132491
            1       0.91      0.91      0.91     76887
@@ -183,4 +184,5 @@ ps -ef|grep "el_service.py --ip ${ip}"|grep -v grep|awk '{print $2}'|xargs kill 
 ```
 
 # 讲在最后
-该项目是对实体链接的一种尝试，采用的是BERT的句子对模式，即[CLS]实体描述[SEP]查询句子[SEP]，利用二分类的思想。在预测的时候采用的直接分词的方式，并判断每个词是否在实体库中，因此可能不大准确，可以利用命名实体识别的方式进行改进。
+- 该项目是对实体链接的一种尝试，采用的是BERT的句子对模式，即[CLS]实体描述[SEP]查询句子[SEP]，利用二分类的思想。在预测的时候采用的直接分词的方式，并判断每个词是否在实体库中，因此可能不大准确，可以利用命名实体识别的方式进行改进。
+- 记得修改相关位置的路径为自己的路径。
