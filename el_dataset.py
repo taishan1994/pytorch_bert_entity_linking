@@ -10,25 +10,21 @@ import el_config
 class ELDataset(Dataset):
     def __init__(self, features):
         self.nums = len(features)
-
-        self.token_ids = (torch.tensor(example.token_ids).long() for example in features)
-        self.attention_masks = (torch.tensor(example.attention_masks).float() for example in features)
-        self.token_type_ids = (torch.tensor(example.token_type_ids).long() for example in features)
-        self.seq_labels = (torch.tensor(example.seq_labels).long() for example in features)
-        self.entity_labels = (torch.tensor(example.entity_labels).long() for example in features)
+        self.features = features
 
     def __len__(self):
         return self.nums
 
     def __getitem__(self, index):
+        example = self.features[index]
         data = {
-            'token_ids': next(self.token_ids),
-            'attention_masks': next(self.attention_masks),
-            'token_type_ids': next(self.token_type_ids),
+            'token_ids': torch.tensor(example.token_ids).long(),
+            'attention_masks': torch.tensor(example.attention_masks).float(),
+            'token_type_ids': torch.tensor(example.token_type_ids).long(),
         }
 
-        data['seq_labels'] = next(self.seq_labels)
-        data['entity_labels'] = next(self.entity_labels)
+        data['seq_labels'] = torch.tensor(example.seq_labels).long()
+        data['entity_labels'] = torch.tensor(example.entity_labels).long()
 
         return data
 
