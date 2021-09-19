@@ -1,6 +1,6 @@
 # pytorch_bert_entity_linking
 基于bert的中文实体链接<br>
-在hugging face上卖弄下载好预训练的权重：chinese-bert-wwm-ext<br>
+在hugging face上下载好预训练的权重：chinese-bert-wwm-ext<br>
 已经训练好的模型以及数据：<br>
 链接：https://pan.baidu.com/s/17y29cBIqIuVzUMub60E53w <br>
 提取码：g7og<br>
