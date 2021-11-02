@@ -40,7 +40,7 @@ train.json：训练数据<br>
 train.pkl：训练二进制文件<br>
 
 # 流程
-首先是el_process.py里面生成一些我们所需要的中间文件。然后是el_processor.py测试数据处理器。接着在el_preprocess.py里面处理数据为bert所需要的格式，并划分训练集和测试集，存储为相关二进制文件。在el_dataset.py里面转换为pytorc所需要的格式，最后在el_main.py里面调用。
+首先是el_process.py里面生成一些我们所需要的中间文件。然后是el_processor.py测试数据处理器。接着在el_preprocess.py里面处理数据为bert所需要的格式，并划分训练集和测试集，存储为相关二进制文件。在el_dataset.py里面转换为pytorch所需要的格式，最后在el_main.py里面调用。
 
 # 依赖
 ```python
