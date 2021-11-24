@@ -10,7 +10,7 @@
 --checkpoints：模型保存<br>
 --data：数据<br>
 --logs：日志<br>
---my_jieba：修改后的结巴分词，解决jieba分词不能将知识库中的kg ls正确分词
+--my_jieba：修改后的结巴分词，解决jieba分词不能将知识库中的kg ls正确分词<br>
 --utils：辅助函数，里面值得注意的是tokenization，主要解决的是进行token化的时候将英文、数字等分开。<br>
 --el_config.py：配置信息<br>
 --el_dataset.py：转换数据为pytorch的格式<br>
